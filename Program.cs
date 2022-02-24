@@ -4,6 +4,17 @@ Main();
 
 void Main()
 {
+    int playerScore = 0;
+    int computerScore = 0;
+    Console.WriteLine("----------------------------");
+    Console.WriteLine($"| Player : {playerScore} | Computer: {computerScore} |");
+    Console.WriteLine("----------------------------");
+    Console.WriteLine(@"What would you like to throw?
+    1) Rock
+    2) Paper
+    3) Scissors
+    ");
+
     PrintRock();
     PrintPaper();
     PrintScissors();
