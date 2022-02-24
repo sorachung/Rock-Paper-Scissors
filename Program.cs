@@ -8,17 +8,34 @@ void Main()
 {
     List<int> scores = new List<int>() { 0, 0 };
 
-    int userChoice;
+    string userChoice;
 
     while (scores[0] < 3 && scores[1] < 3)
     {
         PrintScores(scores[0], scores[1]);
         PrintIntroUI();
-        userChoice = Convert.ToInt32(Console.ReadLine().ToString().Trim());
-        scores = PlayGame(userChoice, scores);
+        userChoice = Console.ReadLine().ToString().Trim();
+        if (userChoice == "" || (userChoice != "1" && userChoice != "2" && userChoice != "3"))
+        {
+            Console.WriteLine("Please enter valid input");
+        }
+        else
+        {
+            int userChoiceInt = Convert.ToInt32(userChoice);
+            scores = PlayGame(userChoiceInt, scores);
+        }
+
     }
     Console.WriteLine("Final Scores: ");
     PrintScores(scores[0], scores[1]);
+    if (scores[0] == 3)
+    {
+        Console.WriteLine("YOU WIN!");
+    }
+    else
+    {
+        Console.WriteLine("YOU LOSE...");
+    }
 }
 
 List<int> PlayGame(int userHand, List<int> scores)
@@ -30,6 +47,7 @@ List<int> PlayGame(int userHand, List<int> scores)
     Random r = new Random();
     int computerHand = r.Next(1, 4);
     chooseHand(computerHand);
+
     return KeepScore(userHand, computerHand, scores);
 }
 
