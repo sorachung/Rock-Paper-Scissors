@@ -14,7 +14,7 @@ void Main()
     {
         PrintScores(scores[0], scores[1]);
         PrintIntroUI();
-        userChoice = Console.ReadLine().ToString().Trim();
+        userChoice = Console.ReadLine().Trim();
         if (userChoice == "" || (userChoice != "1" && userChoice != "2" && userChoice != "3"))
         {
             Console.WriteLine("Please enter valid input");
